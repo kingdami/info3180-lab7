@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+
+{% block main %}
+<div class="container" ng-app="displayApp" ng-controller="displayController">
+    <h1> Thumbnails </h1><hr/>
+    <div class="pics">
+        <div class="pic" ng-repeat="picture in pictures track by $index">
+            <img src="{{ picture }}"/><br>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

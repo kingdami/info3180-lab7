@@ -25,10 +25,14 @@ def home():
 def thumbnail():
     url = "https://www.walmart.com/ip/54649026"
     imagelist = get_images(url)
-    fmt = [{"error":"null", "message":"Success", "thumbnails": imagelist}]
-    jsonify(fmt)
-
-    return render_template("json.html", images = fmt)
+    
+    output = jsonify(error = "null", message = "Success", thumbnails= imagelist)
+    return output
+    #return render_template("json.html", images = output)
+    
+@app.route("/thumbnails/view")
+def view():
+    return render_template('thumbnail.html')
 
 
 ###
