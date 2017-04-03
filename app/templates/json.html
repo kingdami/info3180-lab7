@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+
+{% block main %}
+
+<h2>Images from url:</h2>
+{% for image in images %}
+<div>
+    {{image|safe}}
+</div>
+{% endfor %}
+
+{% endblock %}
