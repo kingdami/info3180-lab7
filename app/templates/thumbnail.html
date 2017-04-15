@@ -4,11 +4,13 @@
 {% block main %}
 <div class="container" ng-app="displayApp" ng-controller="displayController">
     <h1> Thumbnails </h1><hr/>
-    <div class="pics">
-        <div class="pic" ng-repeat="picture in pictures track by $index">
-            <img src="{{ picture }}"/><br>
-        </div>
+    <div class="container">
+        <div class="row">
+            <div class="main col-md-3" ng-repeat="picture in pictures.thumbnails">
+                <img ng-src= "{{ picture }}">
+            </div>
     </div>
 </div>
 
 {% endblock %}
+

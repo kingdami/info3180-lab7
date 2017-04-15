@@ -21,14 +21,16 @@ def home():
     """Render website's home page."""
     return render_template('home.html')
     
-@app.route('/api/thumbnails', methods=['GET', 'POST'])
+@app.route('/api/thumbnails', methods=['GET'])
 def thumbnail():
     url = "https://www.walmart.com/ip/54649026"
     imagelist = get_images(url)
-    
+    for each in imagelist:
+        if not each.lower().endswith(('.png', '.jpg', '.jpeg')):
+            imagelist.remove(each) 
+    imagelist= list(set(imagelist));
     output = jsonify(error = "null", message = "Success", thumbnails= imagelist)
     return output
-    #return render_template("json.html", images = output)
     
 @app.route("/thumbnails/view")
 def view():
